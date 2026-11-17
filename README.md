@@ -93,11 +93,11 @@ A rede vencedora na validação usou **64 e 32 neurônios**, com Dropout de 15% 
 
 **Modelo salvo:** a execução gerou `modelos/bikeflow.keras`, `modelos/preprocessador.joblib` e `modelos/escala_alvo.joblib`. Esses binários estão no pacote de resultados do Colab, mas **não estão versionados neste repositório** (podem ser regenerados executando o notebook). O script `app.py` requer esses arquivos locais para funcionar.
 
-**Print da interface:** falta adicionar a captura real do painel `ipywidgets` executado no Colab, em `assets/tela_funcionando.png`. Quando estiver disponível, remova o comentário abaixo:
+**Captura real da interface:** o painel `ipywidgets` foi executado no Google Colab. No exemplo mostrado, o BikeFlow estimou **aproximadamente 545 bicicletas alugadas** na hora selecionada (17h, junho, segunda-feira, dia útil, bom tempo, estação UCI 2, temperatura 25 °C, sensação 26 °C, umidade 50% e vento 12 km/h).
 
-<!--
-![Interface BikeFlow funcionando](assets/tela_funcionando.png)
--->
+![Interface BikeFlow funcionando — previsão de aproximadamente 545 bicicletas](assets/tela_funcionando.png)
+
+> Esta é uma previsão pontual ilustrativa gerada pela interface, não uma observação da demanda real. Os resultados de desempenho do modelo estão nas métricas de teste acima.
 
 ## Estrutura
 
