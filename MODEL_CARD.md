@@ -1,21 +1,21 @@
 # Model Card — BikeFlow
 
-> **Documento preliminar.** O notebook substituirá este arquivo por uma versão com resultados medidos após treinamento no dataset real.
-
 ## Uso pretendido
-Prever quantidade aproximada de bicicletas compartilhadas alugadas por hora para auxiliar planejamento operacional.
+Prever o número aproximado de bicicletas compartilhadas alugadas por hora, para planejamento de disponibilidade e redistribuição em cenários históricos comparáveis.
 
 ## Não usar para
-Não usar para punição de trabalhadores, preços individualizados discriminatórios, decisões de segurança, negação de serviço ou decisão automática sem revisão humana.
+Não usar para punir trabalhadores, definir preços individuais discriminatórios, negar atendimento, tomar decisões de segurança ou justificar investimentos sem revisão humana.
 
 ## Dados
-[UCI Bike Sharing](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset): dados históricos de Washington, D.C., de 2011–2012. O notebook usa `hour.csv` e exclui `casual` e `registered` para impedir vazamento de resposta.
+UCI Bike Sharing (Capital Bikeshare, Washington, D.C., 2011–2012): **17379** registros horários reais. Atributos: season, mnth, hr, holiday, weekday, workingday, weathersit, temp, atemp, hum, windspeed. Excluídas as colunas `casual` e `registered` para evitar vazamento de resposta.
 
-## Avaliação
-Divisão cronológica de treino, validação e teste; MAE da rede Keras, Ridge e árvore de decisão. **Resultados: pendentes de execução do notebook.**
+## Modelo e avaliação
+Rede neural Keras com camadas **64-32**, Dropout (15%) e Early Stopping, comparada a regressão Ridge e árvore de decisão.
+Divisão cronológica em 60% treino / 20% validação / 20% teste. Seleção feita apenas na validação.
+**MAE no teste:** rede **90.06** bicicletas/h; Ridge **115.88**; árvore **134.73**. RMSE da rede: **127.01**.
 
 ## Limitações
-Dataset histórico, apenas uma cidade, diferenças de mobilidade, estações e clima; requer validação local, monitoramento de deriva e atualização com dados recentes antes de qualquer implantação.
+Dados de 2011–2012 de Washington; não generalizar para 2026, outras cidades, alterações de hábitos ou novas estações. O dataset é histórico e observacional; a sazonalidade, a coleta e a mudança de demanda causam desvios. Avaliar justiça e impactos operacionais, validar dados de entrada, acompanhar o erro e realizar re-treinamento com dados atuais. Esta demonstração não utiliza disponibilidade de bicicletas por estação, trânsito, eventos nem previsão meteorológica.
 
-## Licença / crédito
-Fanaee-T, H. (2013). *Bike Sharing*. UCI Machine Learning Repository. https://doi.org/10.24432/C5W894. CC BY 4.0.
+## Fonte e licença
+Fanaee-T, H. (2013). *Bike Sharing*. UCI Machine Learning Repository. https://doi.org/10.24432/C5W894 — CC BY 4.0.
