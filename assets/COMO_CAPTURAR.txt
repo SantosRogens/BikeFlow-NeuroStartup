@@ -1,0 +1,2 @@
+Coloque aqui uma captura REAL da interface do notebook após treinar o modelo.
+Salve com o nome tela_funcionando.png e ative a linha de imagem no README.md.
