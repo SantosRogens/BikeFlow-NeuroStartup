@@ -1,0 +1,11 @@
+{
+  "observacoes": 17379,
+  "separacao": "60% treino / 20% validação / 20% teste, cronológica",
+  "arquitetura": "64-32",
+  "mae_teste_rede": 90.06,
+  "mae_teste_ridge": 115.88,
+  "mae_teste_arvore": 134.73,
+  "rmse_teste_rede": 127.01,
+  "melhoria_pct_vs_ridge": 22.28,
+  "mensagem_negocio": "No período futuro reservado para teste, a BikeFlow errou em média 90.1 bicicletas por hora, 22.3% menos que a regressão linear (115.9)."
+}
