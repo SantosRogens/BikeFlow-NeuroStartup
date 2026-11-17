@@ -13,12 +13,11 @@ Uma operadora de bicicletas compartilhadas precisa planejar quantas bicicletas d
 
 | Nome completo | RA |
 |---|---|
-| Rogens Brasileiro Alcantara dos Santos | [RA A PREENCHER] |
-| [NOME DO INTEGRANTE 2] | [RA 2] |
-| [NOME DO INTEGRANTE 3] | [RA 3] |
-| [NOME DO INTEGRANTE 4] | [RA 4] |
-| [NOME DO INTEGRANTE 5, se houver] | [RA 5] |
-| [NOME DO INTEGRANTE 6, se houver] | [RA 6] |
+| Rogens Brasileiro Alcantara dos Santos | 2188134 |
+| Arthur Weber | 2856104 |
+| Matheus Correa | 2854840 |
+| Calebe França | 2768672 |
+| Gabriel Moreli | 2758798 |
 
 > A atividade pede **4 a 6 integrantes**. Preencha somente os integrantes reais e remova linhas não utilizadas.
 
