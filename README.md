@@ -58,18 +58,44 @@ Se seu ambiente não tiver TensorFlow mas tiver PyTorch, escolha o backend antes
 KERAS_BACKEND=torch jupyter notebook BikeFlow_Atividade_Pratica_3.ipynb
 ```
 
-## Resultados e evidências
+## Resultados reais e evidências (Google Colab)
 
-**Não foram preenchidas métricas artificiais.** Os números abaixo são calculados pelo notebook quando ele é executado com o dataset real:
+O notebook foi executado sobre **17.379 registros reais** da UCI (2011–2012), sem erros nas 15 células de código. Foi mantida a divisão **cronológica** entre treino (10.427), validação (3.476) e teste (3.476). Os dados de teste não foram utilizados para escolher a arquitetura.
 
-- **Tabela de experimentos:** [experimentos.csv](experimentos.csv) (criada durante a execução).
-- **Métricas e frase de negócio:** [RESULTADOS.md](RESULTADOS.md) (criado durante a execução).
-- **Gráfico 1:** `graficos/01_demanda_por_hora.png` (gerado na execução).
-- **Gráfico 2:** `graficos/02_demanda_por_clima.png` (gerado na execução).
-- **Curvas de treino/validação:** `graficos/03_curvas_aprendizado.png` (gerado na execução).
-- **Print da interface:** após executar, salve `assets/tela_funcionando.png` e retire a linha de comentário abaixo.
+A rede vencedora na validação usou **64 e 32 neurônios**, com Dropout de 15% e Early Stopping.
 
-<!-- Substitua por uma captura REAL da interface funcionando:
+| Modelo | MAE de validação (bicicletas/h) | MAE no teste (bicicletas/h) |
+|---|---:|---:|
+| Keras (64, 32) | **88,22** | **90,06** |
+| Regressão Ridge | 115,53 | 115,88 |
+| Árvore de decisão (bônus) | 132,01 | 134,73 |
+
+**Resultado em linguagem de negócio:** no período futuro reservado ao teste, a rede errou em média **90,1 bicicletas/hora**, redução de **22,3%** no erro em comparação ao modelo linear (115,9). Isso é uma **avaliação histórica**, não garantia de desempenho atual.
+
+**Conclusões dos dois gráficos exploratórios:**
+- A maior demanda média histórica apareceu às **17h**, com cerca de **461,5** aluguéis/hora.
+- A classe meteorológica **1 (bom tempo)** teve a maior média (204,9/h), enquanto a classe **4 (tempo severo)** teve a menor (74,3/h). Associação observacional, não prova de causalidade.
+
+**Arquivos para conferência:**
+- [Notebook executado com os resultados](BikeFlow_Atividade_Pratica_3.ipynb)
+- [Três experimentos Keras](experimentos.csv)
+- [Resultados e comparação](RESULTADOS.md)
+- [Métricas em JSON](modelos/metricas.json)
+- [Model Card com resultados reais](MODEL_CARD.md)
+
+**Gráficos gerados pelo treinamento** (exportados dos resultados do notebook):
+
+![Média histórica de aluguéis por hora](graficos/01_demanda_por_hora.png)
+
+![Demanda média por condição meteorológica](graficos/02_demanda_por_clima.png)
+
+![Curvas de treino e validação das três redes](graficos/03_curvas_aprendizado.png)
+
+**Modelo salvo:** a execução gerou `modelos/bikeflow.keras`, `modelos/preprocessador.joblib` e `modelos/escala_alvo.joblib`. Esses binários estão no pacote de resultados do Colab, mas **não estão versionados neste repositório** (podem ser regenerados executando o notebook). O script `app.py` requer esses arquivos locais para funcionar.
+
+**Print da interface:** falta adicionar a captura real do painel `ipywidgets` executado no Colab, em `assets/tela_funcionando.png`. Quando estiver disponível, remova o comentário abaixo:
+
+<!--
 ![Interface BikeFlow funcionando](assets/tela_funcionando.png)
 -->
 
@@ -77,16 +103,16 @@ KERAS_BACKEND=torch jupyter notebook BikeFlow_Atividade_Pratica_3.ipynb
 
 ```text
 NeuroStartup_BikeFlow/
-├── BikeFlow_Atividade_Pratica_3.ipynb  # Notebook completo, precisa ser executado
+├── BikeFlow_Atividade_Pratica_3.ipynb  # Notebook executado com saídas reais
 ├── app.py                              # Simulador de terminal após treinamento
 ├── README.md                           # Explicação, equipe e instruções
-├── MODEL_CARD.md                       # Modelo inicial; notebook atualiza métricas
+├── MODEL_CARD.md                       # Model Card preenchido com métricas reais
 ├── RESPOSTAS_CADERNO.md                # Partes A, B e C da atividade
 ├── APRESENTACAO_DEMO_DAY.md            # Roteiro de apresentação
 ├── requirements.txt                    # Dependências
 ├── data/                               # Criará hour.csv real
-├── graficos/                            # Gerados pelo notebook
-├── modelos/                             # Salvos após treinamento
+├── graficos/                            # 3 gráficos reais publicados
+├── modelos/                             # Métricas publicadas; binários no ZIP do Colab
 ├── assets/                              # Print da interface em funcionamento
 └── tests/                               # Verificação básica local
 ```
