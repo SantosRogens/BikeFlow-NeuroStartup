@@ -9,7 +9,6 @@ Uma operadora de bicicletas compartilhadas precisa planejar quantas bicicletas d
 
 **Base:** [Bike Sharing — UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset). Dados reais de Washington, D.C. (2011–2012), licença CC BY 4.0. O notebook baixa `hour.csv` automaticamente e guarda em `data/hour.csv`.
 
-## Integrantes (preencher antes da entrega)
 
 | Nome completo | RA |
 |---|---|
@@ -19,7 +18,6 @@ Uma operadora de bicicletas compartilhadas precisa planejar quantas bicicletas d
 | Calebe França | 2768672 |
 | Gabriel Moreli | 2758798 |
 
-> A atividade pede **4 a 6 integrantes**. Preencha somente os integrantes reais e remova linhas não utilizadas.
 
 ## O que o projeto faz
 
